@@ -8,6 +8,9 @@ const app: Application = express();
 registerMiddlewares(app);
 registerRouter(app);
 
+
+
+
 config();
 
 const PORT: string | number = process.env.PORT || 5000;

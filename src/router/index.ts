@@ -4,13 +4,17 @@ import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import cors from "cors";
 import  Categories  from "./Categories";
+import pushCommand from "./CommandeRouter"
+import  postTree  from "./DataTree";
+
+import  getTreeAdmin  from "./GetTreeAdmin";
 
 export default (app: Application) => {
   const options = {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "Saber API",
+        title: "mohamed bouaoui API",
         version: "1.0.0",
         description:
           "This page is dedicated to the route list in the application",
@@ -36,6 +40,8 @@ export default (app: Application) => {
   app.get("/", (req, res) => {
     res.json({ message: "API Running ! " });
   });
-
-  app.use("/api/v1/", [Categories]);
+ 
+  app.use("/api/v1/", [Categories,pushCommand,postTree,getTreeAdmin]);
 };
+
+

@@ -1,14 +1,13 @@
 import express from "express";
 
-import { getCategoriesController } from "../../controllers/categories";
+import { getRequestController } from "../../controllers/request";
 
 const router = express.Router();
 
-
 /**
  * @swagger
- * /categories:
- *   post:
+ * /Request:
+ *   get:
  *     summary: return categories
  *     tags: [Categories]
  *     responses:
@@ -32,7 +31,7 @@ const router = express.Router();
  *                type: object
  *
  */
-router.route("/categories").post(getCategoriesController);
+router.route("/Request").get(getRequestController);
 
 
 

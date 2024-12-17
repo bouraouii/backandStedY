@@ -4,7 +4,9 @@ import { Request, Response } from "express";
 export const getUser = async (req: Request, res: Response) => {
 
   try {
-    const result = await pool.query("SELECT * FROM test.saber");
+    const result = await pool.query("SELECT * FROM public.stedy ORDER BY id ASC");
+   
+    
     res.status(200).json(result);
   } catch (error) {
     console.log(error);

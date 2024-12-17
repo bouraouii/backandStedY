@@ -1,39 +1,26 @@
 import express from "express";
-import { postRequest } from "../controllers/postRequest";
-import { getUser } from "../controllers/getUser";
-import { deleteUser } from "../controllers/deleteUser";
+import { postTree } from "../controllers/postRequest";
 
 const routedr = express.Router();
 
 /**
  * @swagger
- * /pushCommand:
+ * /postTree:
  *   post:
- *     summary: Post User data
- *     tags: [User]
+ *     summary: Post an object with dynamic keys and any type of value
+ *     tags: [Tree]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               firstName:
- *                 type: string
- *               email:
- *                 type: string
- *               phone:
- *                 type: string
- *               company:
- *                 type: string
- *                 description: "Optional. The company the user belongs to."
- *               message:
- *                 type: string
+ *             description: Object with dynamic properties of any type
+ *             additionalProperties: 
+ *               type: "object" # Accepting any type of value for each dynamic property
  *     responses:
  *       200:
- *         description: User data successfully saved
+ *         description: Operation successful
  *         content:
  *           application/json:
  *             schema:
@@ -45,8 +32,13 @@ const routedr = express.Router();
  *                 message:
  *                   type: string
  *                   description: Message about the operation's result
+ *                 data:
+ *                   type: object
+ *                   additionalProperties:
+ *                     type: "object" # This allows any kind of property inside the data object
+ *                   description: Dynamically typed properties inside the object
  *       400:
- *         description: Missing required fields or invalid data
+ *         description: Invalid input or missing data
  *         content:
  *           application/json:
  *             schema:
@@ -56,7 +48,7 @@ const routedr = express.Router();
  *                   type: string
  *                   description: Description of the error
  *       500:
- *         description: Internal server error during the database operation
+ *         description: Internal server error during the operation
  *         content:
  *           application/json:
  *             schema:
@@ -67,6 +59,6 @@ const routedr = express.Router();
  *                   description: Error message detailing the issue
  *
  */
-routedr.route("/pushCommand").post(postRequest);
+routedr.route("/postTree").post(postTree);
 
 export default routedr;
