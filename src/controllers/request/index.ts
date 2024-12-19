@@ -1,4 +1,4 @@
-import { getCategories, getTree } from "../../services/categories";
+import {  getCategory, getTree } from "../../services/categories";
 
 import { Request, Response } from "express";
 
@@ -7,7 +7,7 @@ export const getRequestController = async (req: Request, res: Response) => {
   try {
   
     
-    const result = await getCategories();
+    const result = await getCategory();
     res.status(200).json(Object.values(result)[0]);
   } catch (error) {
     console.log(error);

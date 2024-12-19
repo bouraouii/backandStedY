@@ -1,12 +1,28 @@
 import { Request, Response } from "express";
 import pool, { executeSQLQuery } from "../../database";
 
-export const getCategories = async () => {
-  const query = "SELECT data->>'Formulair' FROM public.stedy ORDER BY id ASC";
-  const result = await executeSQLQuery(query);
- 
-  return result.rows[0];
+export const getCategory = async () => {
+  const query = "SELECT data->>'Formulair' AS formulair FROM public.stedy ORDER BY id ASC";
+
+  try {
+    const result = await executeSQLQuery(query);
+
+    // Si la réponse contient des données, parse chaque champ 'formulair'
+    return result.rows?.map((row) => {
+      try {
+        // Convertir le texte JSON en objet JavaScript
+        return { ...row, formulair: JSON.parse(row.formulair) };
+      } catch (error) {
+        console.error("Erreur de parsing du JSON:", error);
+        return { ...row, formulair: null }; // En cas d'erreur, retourner avec formulair = null
+      }
+    }) || [];
+  } catch (error) {
+    console.error("Erreur lors de l'exécution de la requête :", error);
+    throw new Error("Impossible de récupérer les catégories.");
+  }
 };
+
 export const getTree = async () => {
   const query = "SELECT data->>'text' AS text FROM public.stedy ORDER BY id ASC";
   const result = await executeSQLQuery(query);
