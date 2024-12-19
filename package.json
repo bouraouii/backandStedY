@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --project ./",
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "postinstall": "npm run build --prefix client"
   },
   "devDependencies": {
     "@types/node": "^15.6.1",
