@@ -5,6 +5,7 @@ env.config();
 
 const pool = new Pool({
   connectionString: process.env.DB_URL,
+  ssl:true
 });
 
 export async function executeSQLQuery(SQL: string): Promise<QueryResult<any>> {
