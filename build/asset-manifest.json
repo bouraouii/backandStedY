@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9829ced0.css",
+    "main.js": "/static/js/main.dcf70676.js",
+    "static/js/453.68693753.chunk.js": "/static/js/453.68693753.chunk.js",
+    "static/media/Inter-italic.var.woff2?v=3.19": "/static/media/Inter-italic.var.30807be7abc48ba8c73c.woff2",
+    "static/media/Inter-roman.var.woff2?v=3.19": "/static/media/Inter-roman.var.ba4caefcdf5b36b438db.woff2",
+    "static/media/rpo999.svg": "/static/media/rpo999.f8584257fce4b8ffe9c029d9e565eb5a.svg",
+    "static/media/logo13.svg": "/static/media/logo13.3bd6ad07c11bf02cb110baac7afcc8cb.svg",
+    "static/media/addrese.svg": "/static/media/addrese.9f253661423793f38db02aeb406284d1.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.82c1b69b4df543d7ae6bd37a6f8a1578.svg",
+    "index.html": "/index.html",
+    "static/media/call.svg": "/static/media/call.9b6b2120cb1620ecf9d9f8cb7908b2ea.svg",
+    "static/media/iconUpdate.svg": "/static/media/iconUpdate.231051a0a986c1673bdc2d41e0e57866.svg",
+    "main.9829ced0.css.map": "/static/css/main.9829ced0.css.map",
+    "main.dcf70676.js.map": "/static/js/main.dcf70676.js.map",
+    "453.68693753.chunk.js.map": "/static/js/453.68693753.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9829ced0.css",
+    "static/js/main.dcf70676.js"
+  ]
+}
